@@ -7,8 +7,15 @@ class Counter extends Component {
         // imageUrl: 'https://picsum.photos/200'
         tags: ['tag1', 'tag2', 'tag3']
     };
+
+    // constructor(){
+    //     super();
+    //     // console.log('Constructor', this);
+    //     this.handleIncrement = this.handleIncrement.bind(this);
+    // }
     
-    
+    // using
+
     renderTags(){
         // checking the length of the array and if its empty, we retutn a p tag
         // if(this.state.tags.length === 0) return <p>There are no tags!</p>;
@@ -18,8 +25,9 @@ class Counter extends Component {
         //         </ul>
     }
 
-    handleIncrement(){
-        console.log("increment Clicked", this);
+    //changing this function into an arrow function solves the problem of accessing this
+    handleIncrement = () =>{
+        console.log("increment Clicked", this.state.count += 1);
 
     }
 
