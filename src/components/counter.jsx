@@ -27,9 +27,13 @@ class Counter extends Component {
 
     //changing this function into an arrow function solves the problem of accessing this
     handleIncrement = () =>{
-        console.log("increment Clicked", this.state.count += 1);
+        // console.log("increment Clicked", this);
 
+        // this.state.count++;
+        this.setState({count: this.state.count + 1});
     }
+
+  
 
     render() { 
 
@@ -42,6 +46,9 @@ class Counter extends Component {
                 <button onClick={this.handleIncrement} className="btn btn-secondary btn-sm">
                     Increment
                 </button> 
+                {/* <button onClick={this.handleDecrement} className="btn btn-danger btn-sm m-2">
+                    Decrement
+                </button>  */}
                 {/* {this.state.tags.length === 0 && "Please create a new tag"}
                 {this.renderTags()} */}
             </div>
