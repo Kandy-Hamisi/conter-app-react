@@ -42,12 +42,12 @@ class Counter extends Component {
 
         return (
             <div>
-            <h1>Kandy doing his thangs</h1>
+            
                 <span className={ this.getBadgeClasses() }>
                     {this.formatCount()}
                 </span>
                 <button
-                    onClick={() => this.handleIncrement(product)}
+                    onClick={() => this.handleIncrement({id: this.formatCount()})}
                     className="btn btn-secondary btn-sm"
                 >
                     Increment
