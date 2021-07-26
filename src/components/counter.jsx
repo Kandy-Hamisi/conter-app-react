@@ -2,11 +2,11 @@ import React, { Component } from 'react';
 
 class Counter extends Component {
 
-    state = {
-        value: this.props.counter.value,
-        // imageUrl: 'https://picsum.photos/200'
-        tags: ['tag1', 'tag2', 'tag3']
-    };
+    // state = {
+    //     value: this.props.counter.value,
+    //     // imageUrl: 'https://picsum.photos/200'
+    //     tags: ['tag1', 'tag2', 'tag3']
+    // };
 
     // constructor(){
     //     super();
@@ -26,13 +26,13 @@ class Counter extends Component {
     }
 
     //changing this function into an arrow function solves the problem of accessing this
-    handleIncrement = () =>{
-        // console.log("increment Clicked", this);
+    // handleIncrement = () =>{
+    //     // console.log("increment Clicked", this);
 
-        // this.state.count++;
-        // console.log(product);
-        this.setState({value: this.state.value + 1});
-    }
+    //     // this.state.count++;
+    //     // console.log(product);
+    //     this.setState({value: this.state.value + 1});
+    // }
 
     //  doHandleIncrement = () =>{
     //      this.handleIncrement({ id: this.formatCount()});
@@ -50,7 +50,9 @@ class Counter extends Component {
                     {this.formatCount()}
                 </span>
                 <button
-                    onClick={() => this.handleIncrement()}
+                // commented on the below function
+                // onClick={() => this.handleIncrement()}
+                    onClick={() => this.props.onIncrement(this.props.counter)}
                     className="btn btn-secondary btn-sm"
                 >
                     Increment
@@ -69,12 +71,12 @@ class Counter extends Component {
     getBadgeClasses() {
         let classes = "badge m-2 badge-";
         // if the count is 'Zero' then give the badge a warning class else a primary class
-        classes += (this.state.value === 0) ? "warning" : "primary";
+        classes += (this.props.counter.value === 0) ? "warning" : "primary";
         return classes;
     }
 
     formatCount() {
-        const { value: count } = this.state;
+        const { value: count } = this.props.counter;
         return count === 0 ? "Zero" : count;
     }
 }
