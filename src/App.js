@@ -14,6 +14,35 @@ class App extends Component {
     ]
   };
 
+  // practising lifecycle hooks
+  // Mounting
+  constructor(props){
+    super(props);
+    console.log('App - Constructor', this.props);
+  }
+  // =>componentDidMount
+  componentDidMount() {
+    // Ajax Call
+    // this.setState({  });
+    console.log('App - Mounted');
+  }
+
+  // updating
+  componentDidUpdate(prevProps, prevState){
+    console.log("prepProps",prevProps);
+    console.log("PrevState",prevState);
+
+    // if (prevProps.counter.value != this.props.counter.value) {
+    //   // Ajax call and get new data from the server
+      
+    // }
+  }
+
+  // Unmounting
+  componentWillUnmount(){
+    console.log("Counter - Unmount");
+  }
+
 handleIncrement = counter => {
     const counters = [...this.state.counters];
     const index = counters.indexOf(counter);
@@ -37,7 +66,10 @@ handleReset = () => {
     });
     this.setState({ counters });
 }
-  render() { 
+  render() {
+    
+    console.log("App - Rendered");
+    
     return ( 
       <React.Fragment>
         <Navbar 
